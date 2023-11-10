@@ -11,7 +11,7 @@ import spdy from "spdy";
 
 const app = express();
 
-//LOGGING INCOMING REQUESTS
+//LOGGING INCOMING REQUESTS TO ACCESS.LOG FILE
 const accessLogStream = createWriteStream("access.log", { flags: "a" });
 app.use(
   morgan("common", {
