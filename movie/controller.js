@@ -38,7 +38,3 @@ export async function saveAction(request, response) {
   await save(movie);
   response.redirect(request.baseUrl);
 }
-export const options = {
-  key: readFileSync("./localhost.key"),
-  cert: readFileSync("./localhost.cert"),
-};

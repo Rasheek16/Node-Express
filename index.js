@@ -6,7 +6,7 @@ import morgan from "morgan";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { createWriteStream } from "fs";
-import spdy from 'spdy';
+import spdy from "spdy";
 
 const app = express();
 
@@ -19,8 +19,8 @@ app.use(
 );
 
 const options = {
-  key: readFileSync("./localhost.key"),
-  cert: readFileSync("./localhost.cert"),
+  key: readFileSync("Path"),
+  cert: readFileSync("Path"),
 };
 
 app.use(express.static(`${dirname(fileURLToPath(import.meta.url))}/public`));
@@ -41,5 +41,3 @@ app.get("/", (request, response) => {
 spdy.createServer(options, app).listen(8080, () => {
   console.log(`listening on https://localhost:8080`);
 });
-
-
