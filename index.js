@@ -1,3 +1,4 @@
+//IMPORTS
 import express from "express";
 import { readFileSync } from "fs";
 import { createServer } from "https";
@@ -10,6 +11,7 @@ import spdy from "spdy";
 
 const app = express();
 
+//LOGGING INCOMING REQUESTS
 const accessLogStream = createWriteStream("access.log", { flags: "a" });
 app.use(
   morgan("common", {
@@ -18,16 +20,24 @@ app.use(
   })
 );
 
+//OPTIONS FOR HTTPS SERVER
 const options = {
   key: readFileSync("Path"),
   cert: readFileSync("Path"),
 };
-
+//FOR SENDING STATIC FILE
 app.use(express.static(`${dirname(fileURLToPath(import.meta.url))}/public`));
+
+//FOR LOGGING REQUESTS
 app.use(morgan("common", { immediate: true }));
+
+//FOR HANDLING HTML FORM INPUT
 app.use(express.urlencoded({ extended: false }));
+
+//ROUTER SETUP
 app.use("/movie", movieRouter);
 
+//REDIRECTING TO BASE URL
 app.get("/", (request, response) => {
   response.redirect("/movie");
 });
