@@ -65,6 +65,6 @@ Before you begin, ensure you have met the following requirements:
    ```bash
    GET /
 
-#Contributing
+# Contributing
 Contributions are welcome! If you have any suggestions, bug reports, or improvements, please open an issue or create a pull request.
 
