@@ -42,7 +42,7 @@ Before you begin, ensure you have met the following requirements:
    ```json
    {
       "title": "Movie Title",
-     "year": 2022
+      "year": 2022
    }
    ```
 
